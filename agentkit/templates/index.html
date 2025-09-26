@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+  <section class="column inputs">
+    <form id="agent-form">
+      {% for component in page.components %}
+        {% if component.type == 'text' %}
+          <label for="{{ component.id }}">{{ component.props.label }}</label>
+          <input type="text" id="{{ component.id }}" name="{{ component.id }}" placeholder="{{ component.props.placeholder }}" />
+        {% elif component.type == 'file' %}
+          <label for="{{ component.id }}">{{ component.props.label }}</label>
+          <input type="file" id="{{ component.id }}" name="{{ component.id }}" {% if component.props.multiple %}multiple{% endif %} {% if component.props.accept %}accept="{{ component.props.accept | join(',') }}"{% endif %} />
+        {% elif component.type == 'button' %}
+          <button type="submit" data-trigger="{{ component.id }}">{{ component.props.label }}</button>
+        {% endif %}
+      {% endfor %}
+      <input type="hidden" name="_trigger" id="trigger-field" />
+    </form>
+  </section>
+  <section class="column">
+    <div class="console" id="console"></div>
+    <div class="output">
+      <h3>Output</h3>
+      <pre id="final-output"></pre>
+    </div>
+    <div class="artifacts">
+      <h3>Artifacts</h3>
+      <ul id="artifacts"></ul>
+    </div>
+  </section>
+</main>
+{% endblock %}
