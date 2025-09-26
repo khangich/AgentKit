@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentkit"
+version = "0.1.0"
+description = "Minimal Streamlit-for-Agents framework"
+authors = [{ name = "AgentKit" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+agentkit = "agentkit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["agentkit"]
+
+[tool.setuptools.package-data]
+"agentkit" = ["templates/*.html", "static/*.js"]
