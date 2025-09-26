@@ -6,13 +6,19 @@
     <form id="agent-form">
       {% for component in page.components %}
         {% if component.type == 'text' %}
-          <label for="{{ component.id }}">{{ component.props.label }}</label>
-          <input type="text" id="{{ component.id }}" name="{{ component.id }}" placeholder="{{ component.props.placeholder }}" />
+          <div class="form-field">
+            <label for="{{ component.id }}">{{ component.props.label }}</label>
+            <input type="text" id="{{ component.id }}" name="{{ component.id }}" placeholder="{{ component.props.placeholder }}" />
+          </div>
         {% elif component.type == 'file' %}
-          <label for="{{ component.id }}">{{ component.props.label }}</label>
-          <input type="file" id="{{ component.id }}" name="{{ component.id }}" {% if component.props.multiple %}multiple{% endif %} {% if component.props.accept %}accept="{{ component.props.accept | join(',') }}"{% endif %} />
+          <div class="form-field">
+            <label for="{{ component.id }}">{{ component.props.label }}</label>
+            <input type="file" id="{{ component.id }}" name="{{ component.id }}" {% if component.props.multiple %}multiple{% endif %} {% if component.props.accept %}accept="{{ component.props.accept | join(',') }}"{% endif %} />
+          </div>
         {% elif component.type == 'button' %}
-          <button type="submit" data-trigger="{{ component.id }}">{{ component.props.label }}</button>
+          <div class="form-actions">
+            <button type="submit" data-trigger="{{ component.id }}">{{ component.props.label }}</button>
+          </div>
         {% endif %}
       {% endfor %}
       <input type="hidden" name="_trigger" id="trigger-field" />
