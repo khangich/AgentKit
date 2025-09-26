@@ -13,27 +13,36 @@ AgentKit is a minimal "Streamlit for agents" framework. Build LangChain-powered 
 
 ## Quickstart
 
-1. Install dependencies:
+Follow these steps to run the example app locally.
+
+1. Ensure you have Python 3.10+ available.
+2. Create and activate a virtual environment (use `./.venv/Scripts/activate` on Windows):
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. Install the dependencies and expose the AgentKit CLI:
 
    ```bash
    pip install -r requirements.txt
-   ```
-
-2. (Optional) create a virtual environment and install AgentKit in editable mode:
-
-   ```bash
    pip install -e .
    ```
 
-3. Copy `.env.example` to `.env` and add your `OPENAI_API_KEY`.
+4. Copy `.env.example` to `.env` and populate it with your secrets (at minimum `OPENAI_API_KEY`):
 
-4. Run the example app:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Start the development server:
 
    ```bash
    agentkit run agent_app.py --reload
    ```
 
-   The server listens on [http://localhost:8080](http://localhost:8080).
+6. Open http://localhost:8080 in your browser to interact with the app.
 
 ## Writing an agent app
 
