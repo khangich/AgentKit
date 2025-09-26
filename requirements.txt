@@ -11,3 +11,4 @@ sse-starlette
 aiofiles
 sqlalchemy
 python-multipart
+pytest
