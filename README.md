@@ -44,6 +44,19 @@ Follow these steps to run the example app locally.
 
 6. Open http://localhost:8080 in your browser to interact with the app.
 
+## Sample apps
+
+Once the environment is set up, you can explore the sample projects under `samples/` from the repo root with the AgentKit CLI:
+
+- `samples/minimal_agent.py` – minimal echo agent for validating the UI shell. Run: `agentkit run samples/minimal_agent.py --reload`
+- `samples/ui_showcase.py` – demonstrates every UI control AgentKit ships with. Run: `agentkit run samples/ui_showcase.py --reload`
+- `samples/langchain_ui_agent.py` – LangChain math tutor that streams tokens back through the UI (requires `OPENAI_API_KEY`). Run: `agentkit run samples/langchain_ui_agent.py --reload`
+- `samples/langchain_standalone_agent.py` – LangChain quickstart agent with optional CLI mode (also `python samples/langchain_standalone_agent.py`, requires `OPENAI_API_KEY`). Run: `agentkit run samples/langchain_standalone_agent.py --reload`
+- `samples/startup_research_app.py` – two-agent startup research workflow that relies on your configured OpenAI model (`OPENAI_API_KEY`). Run: `agentkit run samples/startup_research_app.py --reload`
+- `samples/crewai_agent_sample.py` – CrewAI integration demo; install CrewAI first (`pip install crewai`) then run via AgentKit or `python samples/crewai_agent_sample.py`. Run: `agentkit run samples/crewai_agent_sample.py --reload`
+
+Samples that call OpenAI will emit placeholder output if the API key is missing, so populate `.env` with your credentials for the best experience.
+
 ## Writing an agent app
 
 ```python
